@@ -1,0 +1,24 @@
+{
+  "name": "verifier-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chaincodechd/verifier-server.git"
+  },
+  "author": "Naveen-arali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chaincodechd/verifier-server/issues"
+  },
+  "homepage": "https://github.com/chaincodechd/verifier-server#readme",
+  "dependencies": {
+    "@iden3/js-iden3-auth": "^1.0.1",
+    "express": "^4.18.2"
+  }
+}
