@@ -3,13 +3,14 @@ const {auth, resolver, loaders} = require('@iden3/js-iden3-auth')
 const getRawBody = require('raw-body')
 
 const app = express();
-const port = 8080;
-
+const port = 8080; //port 
+// API to get auth request 
 app.get("/api/sign-in", (req, res) => {
     console.log('get Auth Request');
     GetAuthRequest(req,res);
 });
 
+// API for callback
 app.post("/api/callback", (req, res) => {
     console.log('callback');
     Callback(req,res);
@@ -20,6 +21,7 @@ app.listen(port, () => {
 });
 
 
+// This function will return verification data to show on QR to the frontned 
 async function GetAuthRequest(req,res) {
 
     // Audience is verifier id
@@ -46,11 +48,11 @@ async function GetAuthRequest(req,res) {
         circuitId: 'credentialAtomicQuerySigV2',
         query: {
           allowedIssuers: ['*'],
-          type: 'KYCAgeCredential',
+          type: 'KYCAgeCredential', //add type of credentials
           context: 'https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld',
-          credentialSubject: {
+          credentialSubject: { //based on credentaial type credential subject will change
             birthday: {
-              $lt: 20000101,
+              $lt: 20000101,  //alter the birthday based on requirements.
             },
           },
       },
